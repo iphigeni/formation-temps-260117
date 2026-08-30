@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reprendre la main sur son organisation</title>
+  <meta name="description" content="Espace stagiaires — Formation Gestion du temps et des priorités pour MJPM. Programme, ressources et informations pratiques.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --iphigeni-green: #94C11F;
+      --iphigeni-orange: #EE7601;
+      --iphigeni-brown: #473C32;
+      --iphigeni-white: #FFFFFF;
+      --iphigeni-light-bg: #F7F7F5;
+      --iphigeni-text: #333333;
+      --iphigeni-border: #E5E5E2;
+      --bg: #FFFFFF;
+      --bg-section: #F7F7F5;
+      --text: #333333;
+      --text-light: #706b64;
+      --structure: #473C32;
+      --accent: #94C11F;
+      --accent-warm: #EE7601;
+      --border: #E5E5E2;
+      --border-strong: #ccc9c3;
+      --card-bg: #FFFFFF;
+      --card-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 14px rgba(0,0,0,0.04);
+      --timeline-line: #DDD9D4;
+      --timeline-dot-bg: #FFFFFF;
+      --accordion-active-bg: #F7F7F5;
+      --tag-bg: #F0EDE8;
+      --tag-text: #473C32;
+      --btn-primary-bg: #473C32;
+      --btn-primary-text: #FFFFFF;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #18150f;
+        --bg-section: #221d17;
+        --text: #e5e0d8;
+        --text-light: #9d9186;
+        --structure: #e5e0d8;
+        --border: #352e27;
+        --border-strong: #453d35;
+        --card-bg: #221d17;
+        --card-shadow: 0 1px 4px rgba(0,0,0,0.4), 0 4px 16px rgba(0,0,0,0.25);
+        --timeline-line: #352e27;
+        --timeline-dot-bg: #18150f;
+        --accordion-active-bg: #1e1a14;
+        --tag-bg: #2a2520;
+        --tag-text: #c8d8a0;
+        --btn-primary-bg: #94C11F;
+        --btn-primary-text: #18150f;
+      }
+    }
+    :root[data-theme="dark"] {
+      --bg: #18150f;
+      --bg-section: #221d17;
+      --text: #e5e0d8;
+      --text-light: #9d9186;
+      --structure: #e5e0d8;
+      --border: #352e27;
+      --border-strong: #453d35;
+      --card-bg: #221d17;
+      --card-shadow: 0 1px 4px rgba(0,0,0,0.4), 0 4px 16px rgba(0,0,0,0.25);
+      --timeline-line: #352e27;
+      --timeline-dot-bg: #18150f;
+      --accordion-active-bg: #1e1a14;
+      --tag-bg: #2a2520;
+      --tag-text: #c8d8a0;
+      --btn-primary-bg: #94C11F;
+      --btn-primary-text: #18150f;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Source Sans 3', system-ui, -apple-system, sans-serif;
+      font-size: 17px;
+      line-height: 1.65;
+      color: var(--text);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+    /* TYPOGRAPHY */
+    .eyebrow {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2rem, 5vw, 3.1rem);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--structure);
+      text-wrap: balance;
+    }
+    h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 600;
+      line-height: 1.25;
+      color: var(--structure);
+      text-wrap: balance;
+    }
+    h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--structure);
+      line-height: 1.35;
+    }
+    p { max-width: 68ch; }
+
+    /* LAYOUT */
+    .container { max-width: 1160px; margin: 0 auto; padding: 0 2rem; }
+    section { padding: 5rem 0; }
+    .section-header { margin-bottom: 3rem; }
+    .section-header .eyebrow { display: block; margin-bottom: 0.55rem; }
+    .section-header h2 { margin-bottom: 0.7rem; }
+    .section-header .lead { color: var(--text-light); font-size: 1.05rem; max-width: 56ch; }
+
+    /* HEADER */
+    .site-header {
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      padding: 0.9rem 0;
+      position: sticky; top: 0; z-index: 100;
+    }
+    .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    .logo-link { display: flex; align-items: center; }
+    .logo-link img { height: 42px; width: auto; }
+    .header-badge {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      border: 1px solid var(--border-strong);
+      border-radius: 4px;
+      padding: 0.3em 0.75em;
+    }
+
+    /* HERO */
+    .hero { padding: 5rem 0 4.5rem; background: var(--bg); }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 4rem;
+      align-items: center;
+    }
+    .hero-eyebrow {
+      display: flex; align-items: center; gap: 0.55rem;
+      margin-bottom: 1.5rem;
+    }
+    .hero-eyebrow .eyebrow { color: var(--text-light); }
+    .hero-eyebrow .sep { width: 1px; height: 14px; background: var(--border-strong); }
+    .hero-eyebrow .tag {
+      background: var(--tag-bg); color: var(--tag-text);
+      font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.09em; text-transform: uppercase;
+      padding: 0.25em 0.65em; border-radius: 3px;
+    }
+    .hero-title-wrap { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.2rem; }
+    .hero-leaf { height: 52px; width: auto; flex-shrink: 0; margin-top: 0.35rem; }
+    .hero h1 { margin-bottom: 0; }
+    .hero-sub { font-size: 1.13rem; color: var(--text-light); margin-bottom: 2rem; max-width: 52ch; line-height: 1.6; }
+
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 0.65rem; margin-bottom: 2.25rem; }
+    .meta-chip {
+      display: flex; align-items: center; gap: 0.4rem;
+      background: var(--bg-section); border: 1px solid var(--border);
+      border-radius: 6px; padding: 0.4em 0.8em;
+      font-size: 0.87rem; font-weight: 500; color: var(--text);
+    }
+    .meta-chip svg { color: var(--structure); opacity: 0.55; flex-shrink: 0; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 0.8rem; align-items: center; }
+
+    .hero-image { position: relative; }
+    .hero-image-frame {
+      border-radius: 12px; overflow: hidden;
+      aspect-ratio: 4/3; background: var(--bg-section);
+    }
+    .hero-image-frame img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-image-badge {
+      position: absolute; bottom: -1.25rem; left: -1.25rem;
+      background: var(--iphigeni-brown); color: white;
+      padding: 0.9rem 1.2rem; border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+    .badge-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem; font-weight: 700;
+      color: var(--iphigeni-green); line-height: 1;
+    }
+    .badge-label {
+      font-size: 0.68rem; font-weight: 600;
+      letter-spacing: 0.07em; text-transform: uppercase;
+      color: rgba(255,255,255,0.7); margin-top: 0.15rem;
+    }
+
+    /* BUTTONS */
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.9rem; font-weight: 600;
+      border-radius: 6px; padding: 0.7em 1.4em;
+      cursor: pointer; text-decoration: none;
+      transition: background 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+      border: 2px solid transparent; white-space: nowrap;
+    }
+    .btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+    .btn-primary {
+      background: var(--btn-primary-bg); color: var(--btn-primary-text);
+      border-color: var(--btn-primary-bg);
+    }
+    .btn-primary:hover {
+      background: #3a3028; border-color: #3a3028;
+      text-decoration: none; box-shadow: 0 4px 14px rgba(71,60,50,0.3);
+    }
+    .btn-secondary {
+      background: transparent; color: var(--structure);
+      border-color: var(--structure);
+    }
+    .btn-secondary:hover { background: var(--bg-section); text-decoration: none; }
+    .btn-ghost {
+      background: transparent; color: white;
+      border-color: rgba(255,255,255,0.3);
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.55); text-decoration: none; }
+
+    /* PRÉSENTATION */
+    .section-presentation { background: var(--bg-section); }
+    .pres-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem 4.5rem; align-items: start; }
+    .info-card {
+      background: var(--card-bg); border: 1px solid var(--border);
+      border-radius: 10px; padding: 1.4rem;
+      box-shadow: var(--card-shadow); margin-bottom: 1.1rem;
+    }
+    .info-card:last-child { margin-bottom: 0; }
+    .info-card .eyebrow { display: block; margin-bottom: 0.5rem; }
+    .info-card p { font-size: 0.95rem; }
+    .objectifs-list { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; margin-top: 0.4rem; }
+    .objectifs-list li { display: flex; gap: 0.75rem; align-items: flex-start; font-size: 0.94rem; line-height: 1.5; }
+    .obj-num {
+      flex-shrink: 0; width: 22px; height: 22px;
+      background: var(--iphigeni-green); color: #1a2200;
+      font-size: 0.68rem; font-weight: 800; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center; margin-top: 2px;
+    }
+
+    /* TIMELINE */
+    .section-parcours { background: var(--bg); }
+    .timeline {
+      display: flex; align-items: flex-start; gap: 0;
+      margin-top: 3rem; position: relative;
+      overflow-x: auto; padding-bottom: 0.5rem;
+    }
+    .timeline-step {
+      flex: 1; min-width: 130px;
+      display: flex; flex-direction: column;
+      align-items: center; position: relative; text-align: center;
+    }
+    .timeline-step::before {
+      content: ''; position: absolute; top: 12px;
+      left: 0; right: 0; height: 2px;
+      background: var(--timeline-line); z-index: 0;
+    }
+    .timeline-step:first-child::before { left: 50%; }
+    .timeline-step:last-child::before { right: 50%; }
+    .tl-dot {
+      width: 26px; height: 26px; border-radius: 50%;
+      border: 2px solid var(--accent);
+      background: var(--timeline-dot-bg);
+      position: relative; z-index: 1; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .tl-dot.key { background: var(--accent); border-color: var(--accent); }
+    .tl-dot.key::after {
+      content: ''; width: 8px; height: 8px;
+      border-radius: 50%; background: white;
+    }
+    .tl-label {
+      font-size: 0.7rem; font-weight: 800;
+      letter-spacing: 0.06em; color: var(--accent);
+      margin-top: 0.7rem;
+    }
+    .tl-title { font-size: 0.83rem; font-weight: 600; color: var(--text); margin-top: 0.2rem; line-height: 1.3; }
+    .tl-sub { font-size: 0.72rem; color: var(--text-light); margin-top: 0.15rem; }
+
+    /* PROGRAMME */
+    .section-programme { background: var(--bg-section); }
+    .accordion { display: flex; flex-direction: column; gap: 0.5rem; }
+    .acc-item {
+      background: var(--card-bg); border: 1px solid var(--border);
+      border-radius: 8px; overflow: hidden; transition: border-color 0.2s;
+    }
+    .acc-item.open { border-color: var(--accent); }
+    .acc-trigger {
+      width: 100%; background: transparent; border: none;
+      padding: 1.2rem 1.4rem;
+      display: flex; align-items: center; gap: 1rem;
+      cursor: pointer; text-align: left; color: var(--text);
+      font-family: 'Source Sans 3', sans-serif;
+      transition: background 0.15s;
+    }
+    .acc-trigger:hover { background: var(--bg-section); }
+    .acc-trigger:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+    .acc-item.open .acc-trigger { background: var(--accordion-active-bg); }
+    .acc-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem; font-weight: 700;
+      color: var(--structure); line-height: 1; flex-shrink: 0; width: 2.2rem;
+    }
+    .acc-title-wrap { flex: 1; }
+    .acc-title { font-size: 1rem; font-weight: 700; color: var(--structure); line-height: 1.3; }
+    .acc-meta { font-size: 0.8rem; color: var(--text-light); margin-top: 0.15rem; }
+    .acc-icon {
+      flex-shrink: 0; width: 18px; height: 18px;
+      color: var(--text-light); transition: transform 0.2s;
+    }
+    .acc-item.open .acc-icon { transform: rotate(180deg); }
+    .acc-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+    .acc-body {
+      padding: 0 1.4rem 1.4rem;
+      border-top: 1px solid var(--border); padding-top: 1.15rem;
+    }
+    .comp-label {
+      font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--text-light); margin-bottom: 0.65rem;
+    }
+    .acc-points { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    .acc-points li {
+      display: flex; gap: 0.65rem; align-items: flex-start;
+      font-size: 0.94rem; line-height: 1.5;
+    }
+    .acc-points li::before {
+      content: ''; width: 6px; height: 6px; border-radius: 50%;
+      background: var(--iphigeni-orange); flex-shrink: 0; margin-top: 0.6em;
+    }
+    .atelier-note {
+      margin-top: 0.8rem; padding: 0.65rem 0.9rem;
+      background: var(--bg-section);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 4px 4px 0;
+      font-size: 0.87rem; font-style: italic; color: var(--text-light);
+    }
+    .acc-footer {
+      margin-top: 2.25rem;
+      display: flex; flex-wrap: wrap; gap: 1rem; align-items: center;
+    }
+    .prog-ref { font-size: 0.8rem; color: var(--text-light); }
+    .acc-post {
+      background: var(--card-bg); border: 1px solid var(--border);
+      border-radius: 8px; padding: 1.4rem; margin-top: 1.5rem;
+    }
+    .acc-post h3 { margin-bottom: 1rem; }
+    .acc-post-list { display: flex; flex-direction: column; gap: 0.6rem; }
+    .acc-post-item { display: grid; grid-template-columns: 130px 1fr; gap: 0.25rem 1rem; align-items: baseline; padding: 0.55rem 0; border-bottom: 1px solid var(--border); }
+    .acc-post-item:last-child { border-bottom: none; }
+    .acc-post-item dt { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.05em; color: var(--accent); text-transform: uppercase; }
+    .acc-post-item dd { font-size: 0.94rem; color: var(--text); margin: 0; }
+    @media (max-width: 500px) { .acc-post-item { grid-template-columns: 1fr; gap: 0.1rem; } }
+
+    /* INFOS PRATIQUES */
+    .section-infos { background: var(--bg); }
+    .infos-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.1rem;
+    }
+    .info-tile {
+      background: var(--card-bg); border: 1px solid var(--border);
+      border-radius: 10px; padding: 1.4rem;
+      display: flex; flex-direction: column; gap: 0.45rem;
+      box-shadow: var(--card-shadow);
+    }
+    .info-tile-icon { width: 32px; height: 32px; color: var(--structure); opacity: 0.6; }
+    .info-tile-label {
+      font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--text-light);
+    }
+    .info-tile-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem; font-weight: 600;
+      color: var(--structure); line-height: 1.2;
+    }
+    .info-tile-sub { font-size: 0.83rem; color: var(--text-light); line-height: 1.4; }
+    .dates-section { margin-top: 2.5rem; }
+    .dates-section h3 { margin-bottom: 0.9rem; }
+    .dates-grid { display: flex; flex-wrap: wrap; gap: 0.7rem; }
+    .date-chip {
+      background: var(--card-bg); border: 1px solid var(--border);
+      border-radius: 8px; padding: 0.7rem 1.15rem;
+      display: flex; flex-direction: column; gap: 0.1rem;
+      box-shadow: var(--card-shadow);
+    }
+    .date-chip.highlight {
+      border-color: var(--accent); background: var(--accordion-active-bg);
+    }
+    .date-chip .dl { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; color: var(--accent); }
+    .date-chip .dv { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 600; color: var(--structure); }
+    .date-chip .ds { font-size: 0.77rem; color: var(--text-light); }
+    .dates-note { margin-top: 0.9rem; font-size: 0.87rem; color: var(--text-light); }
+
+    /* CONNEXION */
+    .section-connexion { background: var(--bg-section); }
+    .connexion-card {
+      background: var(--card-bg); border: 1px solid var(--border);
+      border-radius: 12px; padding: 2.25rem;
+      box-shadow: var(--card-shadow);
+      display: grid; grid-template-columns: auto 1fr;
+      gap: 1.25rem 1.75rem; align-items: start;
+      max-width: 760px;
+    }
+    .teams-icon {
+      width: 48px; height: 48px; background: #5059C9;
+      border-radius: 10px; display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .cx-content h3 { margin-bottom: 0.4rem; }
+    .cx-content p { font-size: 0.94rem; color: var(--text-light); margin-bottom: 1rem; }
+    .cx-tips { list-style: none; display: flex; flex-direction: column; gap: 0.45rem; margin-top: 0.75rem; }
+    .cx-tips li { display: flex; gap: 0.6rem; align-items: flex-start; font-size: 0.9rem; }
+    .cx-tips li::before { content: '✓'; color: var(--accent); font-weight: 700; flex-shrink: 0; }
+
+    /* RESSOURCES */
+    .section-ressources { background: var(--bg); }
+    .ressources-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 1.1rem;
+    }
+    .ress-card {
+      background: var(--card-bg); border: 1px solid var(--border);
+      border-radius: 10px; padding: 1.4rem;
+      display: flex; flex-direction: column; gap: 0.7rem;
+      box-shadow: var(--card-shadow);
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .ress-card:hover { border-color: var(--accent); box-shadow: 0 4px 20px rgba(148,193,31,0.12); }
+    .ress-icon {
+      width: 38px; height: 38px; background: var(--bg-section);
+      border-radius: 8px; display: flex; align-items: center; justify-content: center;
+      color: var(--structure); opacity: 0.7;
+    }
+    .ress-name { font-weight: 700; color: var(--structure); font-size: 1rem; }
+    .ress-desc { font-size: 0.87rem; color: var(--text-light); line-height: 1.5; flex: 1; }
+
+    /* CONTACT */
+    .section-contact { background: var(--iphigeni-brown); color: white; }
+    .section-contact .eyebrow { color: var(--iphigeni-green); }
+    .section-contact h2 { color: white; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem 5rem; align-items: start; }
+    .form-name { font-family: 'Playfair Display', serif; font-size: 1.45rem; font-weight: 600; color: white; margin-bottom: 0.2rem; }
+    .form-role { font-size: 0.78rem; color: rgba(255,255,255,0.55); text-transform: uppercase; letter-spacing: 0.09em; font-weight: 600; margin-bottom: 0.9rem; }
+    .form-bio { font-size: 0.96rem; color: rgba(255,255,255,0.78); line-height: 1.65; }
+    .handicap-block { margin-top: 2.25rem; padding-top: 1.75rem; border-top: 1px solid rgba(255,255,255,0.12); }
+    .handicap-block p { font-size: 0.88rem; color: rgba(255,255,255,0.6); max-width: 44ch; margin-bottom: 0.8rem; }
+    .contact-items { display: flex; flex-direction: column; gap: 0.9rem; }
+    .c-item { display: flex; align-items: flex-start; gap: 0.8rem; }
+    .c-icon {
+      width: 34px; height: 34px; background: rgba(255,255,255,0.1);
+      border-radius: 6px; display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; color: var(--iphigeni-green);
+    }
+    .c-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; color: rgba(255,255,255,0.45); }
+    .c-value { font-size: 0.97rem; color: white; }
+    .c-value a { color: white; text-decoration: underline; text-underline-offset: 3px; }
+    .c-value a:hover { color: var(--iphigeni-green); }
+
+    /* FOOTER */
+    footer { background: #2b2118; padding: 1.4rem 0; border-top: 1px solid rgba(255,255,255,0.06); }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.9rem; }
+    .footer-brand { font-size: 0.82rem; color: rgba(255,255,255,0.42); }
+    .footer-brand strong { color: rgba(255,255,255,0.68); font-weight: 600; }
+    .footer-links { display: flex; gap: 1.4rem; }
+    .footer-links a { font-size: 0.8rem; color: rgba(255,255,255,0.38); transition: color 0.15s; }
+    .footer-links a:hover { color: rgba(255,255,255,0.72); text-decoration: none; }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .hero-content { order: 1; }
+      .hero-image { order: 0; max-width: 480px; }
+      .hero-image-badge { left: 0.75rem; bottom: -1rem; }
+      .pres-grid { grid-template-columns: 1fr; }
+      .infos-grid { grid-template-columns: 1fr 1fr; }
+      .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .connexion-card { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      section { padding: 3.5rem 0; }
+      .container { padding: 0 1.25rem; }
+      .infos-grid { grid-template-columns: 1fr; }
+      .hero { padding: 2.5rem 0 3rem; }
+      .hero-actions { flex-direction: column; align-items: flex-start; }
+      .btn { font-size: 0.87rem; }
+      .timeline-step { min-width: 95px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header" role="banner">
+  <div class="container">
+    <div class="header-inner">
+      <a class="logo-link" href="https://www.iphigeni.fr" aria-label="iphigeni — retour au site">
+        <img src="logo.png" alt="iphigeni" height="42" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'"><span style="display:none; font-family:'Source Sans 3',sans-serif; font-weight:700; font-size:1.1rem; color:#473C32; letter-spacing:0.04em;">iphigeni</span>
+      </a>
+      <span class="header-badge">Espace stagiaires</span>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="hero-eyebrow">
+            <span class="eyebrow">Formation MJPM</span>
+            <span class="sep" aria-hidden="true"></span>
+            <span class="tag">Distanciel</span>
+          </div>
+          <div class="hero-title-wrap">
+            <img src="leaf.png" class="hero-leaf" alt="" aria-hidden="true">
+            <h1 id="hero-title">Reprendre la main sur son organisation</h1>
+          </div>
+          <p class="hero-sub">Une journée pour reconstruire votre système d'organisation, puis un accompagnement léger pour qu'il tienne dans la vraie vie.</p>
+          <div class="hero-meta" role="list" aria-label="Informations clés de la formation">
+            <span class="meta-chip" role="listitem">
+              <svg aria-hidden="true" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              14 janvier 2027
+            </span>
+            <span class="meta-chip" role="listitem">
+              <svg aria-hidden="true" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              09 h – 17 h 30
+            </span>
+            <span class="meta-chip" role="listitem">
+              <svg aria-hidden="true" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 .01h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+              Microsoft Teams
+            </span>
+            <span class="meta-chip" role="listitem">
+              <svg aria-hidden="true" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+              MJPM · 10 pers. max
+            </span>
+          </div>
+          <div class="hero-actions">
+            <a href="programme.pdf" class="btn btn-primary" download aria-label="Télécharger le programme de formation (PDF)">
+              <svg aria-hidden="true" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Télécharger le programme
+            </a>
+            <a href="livret-stagiaire.pdf" class="btn btn-secondary" download aria-label="Télécharger le livret stagiaire (PDF)">Livret stagiaire</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <div class="hero-image-frame">
+            <img src="illustration.png" alt="Professionnelle analysant des documents à son bureau" loading="eager">
+          </div>
+          <div class="hero-image-badge" aria-label="7 heures de formation-action">
+            <div class="badge-num">7 h</div>
+            <div class="badge-label">formation-action</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRÉSENTATION -->
+  <section class="section-presentation" aria-labelledby="pres-title">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">La formation</span>
+        <h2 id="pres-title">Ce que vous allez construire</h2>
+        <p class="lead">Un parcours conçu pour les MJPM expérimentés qui cherchent à reconstruire un système d'organisation solide — pas à découvrir des outils.</p>
+      </div>
+      <div class="pres-grid">
+        <div>
+          <div class="info-card">
+            <span class="eyebrow">Public visé</span>
+            <p>Mandataires Judiciaires à la Protection des Majeurs (MJPM), professionnels expérimentés souhaitant reconstruire leur système d'organisation.</p>
+          </div>
+          <div class="info-card">
+            <span class="eyebrow">Modalité pédagogique</span>
+            <p><strong>20 % apports — 80 % ateliers et échanges.</strong> Travaux sur situations anonymisées : cartographie, cadrage, priorisation, semaine réaliste, flux.</p>
+          </div>
+          <div class="info-card">
+            <span class="eyebrow">Prérequis</span>
+            <p>Aucun prérequis. Inscription après un échange permettant de vérifier l'adéquation de la formation au besoin.</p>
+          </div>
+        </div>
+        <div>
+          <span class="eyebrow" style="display:block; margin-bottom: 0.7rem;">5 objectifs à atteindre à 17 h 30</span>
+          <ul class="objectifs-list">
+            <li>
+              <span class="obj-num" aria-hidden="true">1</span>
+              <span>Analyser votre organisation actuelle pour identifier vos sources d'éparpillement, pratiques protectrices et marge prioritaire.</span>
+            </li>
+            <li>
+              <span class="obj-num" aria-hidden="true">2</span>
+              <span>Cadrer les activités en tâches planifiables, puis prioriser selon l'urgence, l'importance et le risque.</span>
+            </li>
+            <li>
+              <span class="obj-num" aria-hidden="true">3</span>
+              <span>Prioriser comme MJPM — évaluer des situations réelles avec une grille urgence / importance / risque.</span>
+            </li>
+            <li>
+              <span class="obj-num" aria-hidden="true">4</span>
+              <span>Construire une semaine réaliste avec contraintes fixes, flux récurrents et créneaux protégés.</span>
+            </li>
+            <li>
+              <span class="obj-num" aria-hidden="true">5</span>
+              <span>Maîtriser les flux et interruptions — traiter, différer, déléguer ou planifier selon vos propres règles.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE PARCOURS -->
+  <section class="section-parcours" aria-labelledby="parcours-title">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Architecture du parcours</span>
+        <h2 id="parcours-title">De J-7 à J+60</h2>
+        <p class="lead">Un parcours sur 3 mois — 7 h de formation-action au cœur, entouré d'un diagnostic amont et d'un accompagnement terrain sur 60 jours.</p>
+      </div>
+      <div class="timeline" role="list" aria-label="Étapes du parcours de formation">
+        <div class="timeline-step" role="listitem">
+          <div class="tl-dot" aria-hidden="true"></div>
+          <div class="tl-label">J-7</div>
+          <div class="tl-title">Diagnostic individuel</div>
+          <div class="tl-sub">15 min · en amont</div>
+        </div>
+        <div class="timeline-step" role="listitem">
+          <div class="tl-dot key" aria-hidden="true"></div>
+          <div class="tl-label">J0 · 14 jan. 2027</div>
+          <div class="tl-title">Formation-action</div>
+          <div class="tl-sub">7 h · distanciel</div>
+        </div>
+        <div class="timeline-step" role="listitem">
+          <div class="tl-dot" aria-hidden="true"></div>
+          <div class="tl-label">J+1 à J+21</div>
+          <div class="tl-title">Expérimentation terrain</div>
+          <div class="tl-sub">21 jours</div>
+        </div>
+        <div class="timeline-step" role="listitem">
+          <div class="tl-dot" aria-hidden="true"></div>
+          <div class="tl-label">J+30</div>
+          <div class="tl-title">Coaching collectif</div>
+          <div class="tl-sub">3 h · distanciel</div>
+        </div>
+        <div class="timeline-step" role="listitem">
+          <div class="tl-dot" aria-hidden="true"></div>
+          <div class="tl-label">J+60</div>
+          <div class="tl-title">Bilan auto-évaluation</div>
+          <div class="tl-sub">Certificat de réalisation</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRAMME -->
+  <section class="section-programme" aria-labelledby="prog-title">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Programme de formation</span>
+        <h2 id="prog-title">Les 5 compétences du parcours</h2>
+        <p class="lead">Chaque module est orienté action. Les productions réalisées pendant J0 constituent votre évaluation des acquis.</p>
+      </div>
+
+      <div class="accordion" role="list">
+
+        <div class="acc-item" role="listitem">
+          <button class="acc-trigger" aria-expanded="false" aria-controls="acc1">
+            <span class="acc-num" aria-hidden="true">01</span>
+            <span class="acc-title-wrap">
+              <span class="acc-title">Analyser son organisation actuelle</span>
+              <span class="acc-meta">Cartographie individuelle + analyse en trinômes</span>
+            </span>
+            <svg class="acc-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="acc-content" id="acc1" role="region">
+            <div class="acc-body">
+              <p class="comp-label">Contenus et applications</p>
+              <ul class="acc-points">
+                <li>Identifier au moins 3 sources d'éparpillement, 2 pratiques protectrices, 1 rituel à restaurer et 1 marge prioritaire.</li>
+                <li>Cartographie individuelle de votre organisation actuelle.</li>
+                <li>Analyse et confrontation en trinômes.</li>
+              </ul>
+              <p class="atelier-note">Atelier : cartographie individuelle, lecture croisée en trinômes.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="acc-item" role="listitem">
+          <button class="acc-trigger" aria-expanded="false" aria-controls="acc2">
+            <span class="acc-num" aria-hidden="true">02</span>
+            <span class="acc-title-wrap">
+              <span class="acc-title">Cadrer le travail pour le rendre planifiable</span>
+              <span class="acc-meta">Atelier de cadrage + relecture en binôme</span>
+            </span>
+            <svg class="acc-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="acc-content" id="acc2" role="region">
+            <div class="acc-body">
+              <p class="comp-label">Contenus et applications</p>
+              <ul class="acc-points">
+                <li>Transformer une activité réelle anonymisée en tâche planifiable : résultat observable, durée crédible, référence comparable et échéance explicite.</li>
+                <li>Atelier de cadrage sur vos propres activités.</li>
+                <li>Relecture et validation croisée en binôme.</li>
+              </ul>
+              <p class="atelier-note">Atelier : cadrage d'une activité réelle, relecture en binôme.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="acc-item" role="listitem">
+          <button class="acc-trigger" aria-expanded="false" aria-controls="acc3">
+            <span class="acc-num" aria-hidden="true">03</span>
+            <span class="acc-title-wrap">
+              <span class="acc-title">Prioriser comme MJPM</span>
+              <span class="acc-meta">Challenge individuel + confrontation entre pairs</span>
+            </span>
+            <svg class="acc-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="acc-content" id="acc3" role="region">
+            <div class="acc-body">
+              <p class="comp-label">Contenus et applications</p>
+              <ul class="acc-points">
+                <li>Évaluer au moins 10 situations MJPM fictives ou anonymisées selon l'urgence, l'importance et le risque.</li>
+                <li>Justifier au moins 3 arbitrages.</li>
+                <li>Challenge de priorisation individuel, puis confrontation des choix entre pairs.</li>
+              </ul>
+              <p class="atelier-note">Grille urgence / importance / risque spécifique au contexte MJPM.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="acc-item" role="listitem">
+          <button class="acc-trigger" aria-expanded="false" aria-controls="acc4">
+            <span class="acc-num" aria-hidden="true">04</span>
+            <span class="acc-title-wrap">
+              <span class="acc-title">Construire une semaine réaliste</span>
+              <span class="acc-meta">Atelier de planification + crash-test d'un imprévu</span>
+            </span>
+            <svg class="acc-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="acc-content" id="acc4" role="region">
+            <div class="acc-body">
+              <p class="comp-label">Contenus et applications</p>
+              <ul class="acc-points">
+                <li>Construire une semaine soutenable : contraintes fixes, flux récurrents, 3 priorités, créneaux protégés et marges.</li>
+                <li>Crash-test d'un imprévu de 1 h 30 sur la semaine construite.</li>
+                <li>Formalisation de 2 règles personnelles de régulation.</li>
+              </ul>
+              <p class="atelier-note">Atelier de planification individuelle, puis test de robustesse collectif.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="acc-item" role="listitem">
+          <button class="acc-trigger" aria-expanded="false" aria-controls="acc5">
+            <span class="acc-num" aria-hidden="true">05</span>
+            <span class="acc-title-wrap">
+              <span class="acc-title">Maîtriser les flux et les interruptions</span>
+              <span class="acc-meta">Simulation de flux + règle personnelle de régulation</span>
+            </span>
+            <svg class="acc-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="acc-content" id="acc5" role="region">
+            <div class="acc-body">
+              <p class="comp-label">Contenus et applications</p>
+              <ul class="acc-points">
+                <li>Traiter, différer, déléguer ou planifier au moins 8 sollicitations sur 10.</li>
+                <li>Justifier 3 choix de régulation.</li>
+                <li>Formalisation d'une règle personnelle de régulation des flux.</li>
+              </ul>
+              <p class="atelier-note">Simulation de flux en temps réel, formalisation d'une règle personnelle.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="acc-post">
+        <h3>Accompagnement post-formation</h3>
+        <dl class="acc-post-list">
+          <div class="acc-post-item">
+            <dt>J0 — 16 h à 17 h 30</dt>
+            <dd>Consolidation de votre système minimum viable et choix de 3 comportements à tester.</dd>
+          </div>
+          <div class="acc-post-item">
+            <dt>J+1 à J+21</dt>
+            <dd>Expérimentation terrain avec un indicateur simple de votre choix.</dd>
+          </div>
+          <div class="acc-post-item">
+            <dt>J+30</dt>
+            <dd>Coaching collectif de 3 h à distance.</dd>
+          </div>
+          <div class="acc-post-item">
+            <dt>J+60</dt>
+            <dd>Bilan et auto-évaluation courte. Certificat de réalisation.</dd>
+          </div>
+        </dl>
+      </div>
+
+      <div class="acc-footer">
+        <a href="programme.pdf" class="btn btn-primary" download>
+          <svg aria-hidden="true" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Télécharger le programme complet
+        </a>
+        <span class="prog-ref">Programme MJPM1-IPHI-2608-v4 · Mis à jour le 22 août 2026</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- INFOS PRATIQUES -->
+  <section class="section-infos" aria-labelledby="infos-title">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Informations pratiques</span>
+        <h2 id="infos-title">Tout ce qu'il faut savoir</h2>
+      </div>
+      <div class="infos-grid" role="list">
+        <div class="info-tile" role="listitem">
+          <svg class="info-tile-icon" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span class="info-tile-label">Durée</span>
+          <span class="info-tile-value">7 h + accompagnement</span>
+          <span class="info-tile-sub">09 h – 17 h 30 · Pause 12 h 30 – 14 h 00</span>
+        </div>
+        <div class="info-tile" role="listitem">
+          <svg class="info-tile-icon" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          <span class="info-tile-label">Effectif</span>
+          <span class="info-tile-value">10 personnes max.</span>
+          <span class="info-tile-sub">Format INTRA · INTER disponibles</span>
+        </div>
+        <div class="info-tile" role="listitem">
+          <svg class="info-tile-icon" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 .01h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+          <span class="info-tile-label">Modalité</span>
+          <span class="info-tile-value">Distanciel</span>
+          <span class="info-tile-sub">Microsoft Teams · classe virtuelle</span>
+        </div>
+      </div>
+
+      <div class="dates-section">
+        <h3>Dates INTER 2027</h3>
+        <div class="dates-grid" role="list" aria-label="Sessions disponibles en 2027">
+          <div class="date-chip highlight" role="listitem">
+            <span class="dl">Prochaine session</span>
+            <span class="dv">14 janvier 2027</span>
+            <span class="ds">09 h – 17 h 30</span>
+          </div>
+          <div class="date-chip" role="listitem">
+            <span class="dl">Session 2</span>
+            <span class="dv">5 avril 2027</span>
+            <span class="ds">09 h – 17 h 30</span>
+          </div>
+          <div class="date-chip" role="listitem">
+            <span class="dl">Session 3</span>
+            <span class="dv">2 septembre 2027</span>
+            <span class="ds">09 h – 17 h 30</span>
+          </div>
+          <div class="date-chip" role="listitem">
+            <span class="dl">Session 4</span>
+            <span class="dv">22 novembre 2027</span>
+            <span class="ds">09 h – 17 h 30</span>
+          </div>
+        </div>
+        <p class="dates-note">Formation INTRA disponible à la date de votre choix — délai d'accès : 3 semaines à 1 mois.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONNEXION TEAMS -->
+  <section class="section-connexion" aria-labelledby="connexion-title">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Se connecter le jour J</span>
+        <h2 id="connexion-title">Rejoindre la formation</h2>
+      </div>
+      <div class="connexion-card">
+        <div class="teams-icon" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+            <path d="M16 6a3 3 0 100 6 3 3 0 000-6z" fill="white" opacity="0.9"/>
+            <path d="M18.5 13.5h-4.5c-.83 0-1.5.67-1.5 1.5v4.5h7.5V15c0-.83-.67-1.5-1.5-1.5z" fill="white" opacity="0.7"/>
+            <path d="M9.5 8.5a2 2 0 100 4 2 2 0 000-4z" fill="white"/>
+            <path d="M11.5 13.5H7c-.55 0-1 .45-1 1v4.5h6.5V14.5c0-.55-.45-1-1-1z" fill="white" opacity="0.85"/>
+          </svg>
+        </div>
+        <div class="cx-content">
+          <h3>Microsoft Teams</h3>
+          <p>La formation se déroule intégralement en ligne. Un lien de connexion unique vous sera transmis avant la session.</p>
+          <ul class="cx-tips">
+            <li>Lien unique valable pour J0 et pour le coaching collectif J+30.</li>
+            <li>Test de connexion possible avant la session sur simple demande.</li>
+            <li>Supports multimodaux et accessibles transmis en amont.</li>
+            <li>Micro et connexion stable requis — caméra recommandée.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESSOURCES -->
+  <section class="section-ressources" aria-labelledby="res-title">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Téléchargements</span>
+        <h2 id="res-title">Vos ressources de formation</h2>
+        <p class="lead">Tous les documents dont vous avez besoin, disponibles en téléchargement direct.</p>
+      </div>
+      <div class="ressources-grid">
+        <div class="ress-card">
+          <div class="ress-icon" aria-hidden="true">
+            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          </div>
+          <div class="ress-name">Programme de formation</div>
+          <div class="ress-desc">Le programme complet : objectifs SMART, contenus, modalités pédagogiques et informations pratiques.</div>
+          <a href="programme.pdf" class="btn btn-primary" download style="margin-top: auto;" aria-label="Télécharger le programme de formation (PDF)">
+            <svg aria-hidden="true" width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Télécharger
+          </a>
+        </div>
+        <div class="ress-card">
+          <div class="ress-icon" aria-hidden="true">
+            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+          </div>
+          <div class="ress-name">Livret stagiaire</div>
+          <div class="ress-desc">Votre guide de référence tout au long du parcours : contacts, règlement, informations pratiques et ressources.</div>
+          <a href="livret-stagiaire.pdf" class="btn btn-secondary" download style="margin-top: auto;" aria-label="Télécharger le livret stagiaire (PDF)">
+            <svg aria-hidden="true" width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Télécharger
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section-contact" aria-labelledby="contact-title">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Votre formateur</span>
+        <h2 id="contact-title">Une question ? Contactez-nous.</h2>
+      </div>
+      <div class="contact-grid">
+        <div>
+          <div class="form-name">Pierre-François Itel</div>
+          <div class="form-role">Formateur &amp; Coach · iphigeni</div>
+          <p class="form-bio">Consultant, formateur et coach spécialisé en management et gestion de projet. Formé au métier de Mandataire Judiciaire à la Protection des Majeurs en 2007, il accompagne des MJPM indépendants dans leurs projets d'organisation, dans l'appropriation du logiciel Proxima, en accompagnement individuel ou en codéveloppement.</p>
+          <div class="handicap-block">
+            <p>Vous avez un besoin d'aménagement particulier ? Notre référent handicap est identifié et les supports sont multimodaux et accessibles.</p>
+            <a href="https://www.iphigeni.fr/formation/" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">Politique d'inclusion et de gestion du handicap ↗</a>
+          </div>
+        </div>
+        <div class="contact-items">
+          <div class="c-item">
+            <div class="c-icon" aria-hidden="true">
+              <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <div class="c-label">Email</div>
+              <div class="c-value"><a href="mailto:info@iphigeni.fr">info@iphigeni.fr</a></div>
+            </div>
+          </div>
+          <div class="c-item">
+            <div class="c-icon" aria-hidden="true">
+              <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 .01h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+            </div>
+            <div>
+              <div class="c-label">Téléphone</div>
+              <div class="c-value"><a href="tel:+33616179593">06 16 17 95 93</a></div>
+            </div>
+          </div>
+          <div class="c-item">
+            <div class="c-icon" aria-hidden="true">
+              <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+            </div>
+            <div>
+              <div class="c-label">Site web</div>
+              <div class="c-value"><a href="https://www.iphigeni.fr" target="_blank" rel="noopener noreferrer">www.iphigeni.fr</a></div>
+            </div>
+          </div>
+          <div class="c-item">
+            <div class="c-icon" aria-hidden="true">
+              <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div>
+              <div class="c-label">Accessibilité</div>
+              <div class="c-value"><a href="https://www.iphigeni.fr/formation/" target="_blank" rel="noopener noreferrer">Politique handicap et inclusion</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <strong>iphigeni</strong> · conseil, formation &amp; accompagnement
+      </div>
+      <div class="footer-links">
+        <a href="https://www.iphigeni.fr" target="_blank" rel="noopener noreferrer">Site iphigeni</a>
+        <a href="https://www.iphigeni.fr/formation/" target="_blank" rel="noopener noreferrer">Politique handicap</a>
+        <a href="mailto:info@iphigeni.fr">Contact</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.acc-trigger').forEach(trigger => {
+    trigger.addEventListener('click', () => {
+      const item = trigger.closest('.acc-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.acc-item').forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.acc-trigger').setAttribute('aria-expanded', 'false');
+        i.querySelector('.acc-content').style.maxHeight = null;
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        trigger.setAttribute('aria-expanded', 'true');
+        const content = item.querySelector('.acc-content');
+        content.style.maxHeight = content.scrollHeight + 'px';
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
