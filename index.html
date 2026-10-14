@@ -442,18 +442,38 @@ footer .footer-links a {color:#fff;text-decoration:underline;}
     const urlLink = document.getElementById('link-'+k);
     const status = document.getElementById('status-'+k);
     const qr = document.getElementById('qr-'+k);
-    if (target) {
-      urlLink.href = target; urlLink.classList.remove('hidden');
+    // Les liens et QR codes ne deviennent visibles que si le formateur ouvre l'évaluation.
+    // IMPORTANT : ce contrôle masque l'accès sur la page, mais ne ferme pas Klaxoon.
+    const etat = entry.etat || 'a_venir';
+    urlLink.classList.add('hidden');
+    urlLink.removeAttribute('href');
+    qr.replaceChildren();
+    if (!session) {
+      status.textContent = 'Sélectionnez une session valide.';
+      qr.textContent = 'QR code non disponible';
+    } else if (etat === 'termine') {
+      status.textContent = 'Évaluation terminée.';
+      qr.textContent = 'Accès clôturé';
+    } else if (etat !== 'ouvert') {
+      status.textContent = 'À venir — accès communiqué par le formateur.';
+      qr.textContent = 'QR code disponible à l’ouverture';
+    } else if (!target) {
+      status.textContent = 'Questionnaire non encore configuré.';
+      qr.textContent = 'QR code non disponible';
+    } else {
+      urlLink.href = target;
+      urlLink.classList.remove('hidden');
       status.textContent = 'Questionnaire disponible pour cette session.';
       const qrPath = entry.qr;
-      if (typeof qrPath==='string' && /^qr\/[a-z0-9_-]+\.png$/i.test(qrPath)) {
-        const img=document.createElement('img');img.src=qrPath;img.alt='QR code d’accès au questionnaire '+k;
-        img.onerror=()=>{qr.textContent='QR code non disponible — utilisez le lien.'};
+      if (typeof qrPath === 'string' && /^qr\/[a-z0-9_-]+\.png$/i.test(qrPath)) {
+        const img = document.createElement('img');
+        img.src = qrPath;
+        img.alt = 'QR code d’accès au questionnaire ' + k;
+        img.onerror = () => { qr.textContent = 'QR code non disponible — utilisez le lien.'; };
         qr.replaceChildren(img);
-      } else {qr.textContent='QR code à ajouter — utilisez le lien.';}
-    } else {
-      status.textContent = session ? 'Questionnaire non encore configuré.' : 'Sélectionnez une session valide.';
-      qr.textContent='QR code non disponible';
+      } else {
+        qr.textContent = 'QR code à ajouter — utilisez le lien.';
+      }
     }
   });
   document.querySelectorAll('.acc-trigger').forEach(button => {
